@@ -5,16 +5,39 @@ describe('Directive: uiNumber', function () {
   // load the directive's module
   beforeEach(module('uiFormValidationApp'));
 
-  var element,
-    scope;
+  var element,scope,form;
 
   beforeEach(inject(function ($rootScope) {
-    scope = $rootScope.$new();
+    scope = $rootScope;
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<ui-number></ui-number>');
-    element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the uiNumber directive');
+  it('should throw an error if input is not numeric', inject(function ($compile) {
+    element = angular.element(
+      '<form name="form">' +
+      '<input ng-model="value" name="textField" ui-number />' +
+      '</form>'
+    );
+
+    $compile(element)(scope);
+    form = scope.form;
+    scope.value ='a';
+    scope.$digest();
+    expect(form.textField.$error.uiNumber).toBe(true);
+
+  }));
+
+  it('should not throw an error if input is numeric', inject(function ($compile) {
+    element = angular.element(
+      '<form name="form">' +
+      '<input ng-model="value" name="textField" ui-number />' +
+      '</form>'
+    );
+
+    $compile(element)(scope);
+    form = scope.form;
+    scope.value =4;
+    scope.$digest();
+    expect(form.textField.$error.uiNumber).toBe(undefined);
+
   }));
 });
