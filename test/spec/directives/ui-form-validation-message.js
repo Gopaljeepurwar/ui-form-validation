@@ -48,8 +48,8 @@ describe('Directive: uiFormValidationMessage', function () {
   }));
 
   it('should hide ui-form-validation-message: init', inject(function () {
-    var directiveElement=element.find("[field='username']");
-    var inputElement=element.find("[name='username']");
+    var directiveElement=element.find('[field="username""]');
+    var inputElement=element.find('[name="username""]');
 
     expect(directiveElement.hasClass('ng-hide')).toBe(true);
     expect(directiveElement.hasClass('ng-show')).toBe(false);
@@ -57,46 +57,46 @@ describe('Directive: uiFormValidationMessage', function () {
     expect(inputElement.hasClass('ng-invalid')).toBe(true);
   }));
   it('should add ui-error class to field on focusout', inject(function ($timeout) {
-    var inputElement=element.find("[name='username']");
-    var directiveElement=element.find("[field='username']");
+    var inputElement=element.find('[name="username"]');
+    var directiveElement=element.find('[field="username"]');
     scope.$digest();
     $timeout.flush(0);
-    inputElement.triggerHandler("focusout");
+    inputElement.triggerHandler('focusout');
     expect(inputElement.hasClass(errorCls)).toBe(true);
     expect(inputElement.hasClass('ng-invalid')).toBe(true);
     expect(directiveElement.hasClass('ng-hide')).toBe(false);
     expect(directiveElement.hasClass('ng-show')).toBe(true);
   }));
   it('should remove ui-error class from field on keypress', inject(function ($timeout) {
-    var inputElement=element.find("[name='username']");
-    var directiveElement=element.find("[field='username']");
+    var inputElement=element.find('[name="username"]');
+    var directiveElement=element.find('[field="username"]');
     scope.$digest();
     $timeout.flush(0);
-    inputElement.triggerHandler("keypress");
+    inputElement.triggerHandler('keypress');
     expect(directiveElement.hasClass('ng-hide')).toBe(true);
     expect(directiveElement.hasClass('ng-show')).toBe(false);
     expect(inputElement.hasClass(errorCls)).toBe(false);
     expect(inputElement.hasClass('ng-invalid')).toBe(true);
   }));
   it('should remove ui-error class from field on focusout ', inject(function ($timeout) {
-    var inputElement=element.find("[name='username']");
-    var directiveElement=element.find("[field='username']");
+    var inputElement=element.find('[name="username"]');
+    var directiveElement=element.find('[field="username"]');
     scope.username='test';
     scope.$digest();
     $timeout.flush(0);
-    inputElement.triggerHandler("focusout");
+    inputElement.triggerHandler('focusout');
     expect(directiveElement.hasClass('ng-hide')).toBe(true);
     expect(directiveElement.hasClass('ng-show')).toBe(false);
     expect(inputElement.hasClass(errorCls)).toBe(false);
     expect(inputElement.hasClass('ng-invalid')).toBe(false);
   }));
   it('should not add ui-error class on field on focusout still field is invalid ', inject(function ($timeout) {
-    var inputElement=element.find("[name='email']");
-    var directiveElement=element.find("[field='email']");
+    var inputElement=element.find('[name="email"]');
+    var directiveElement=element.find('[field="email"]');
     scope.email='invalidEmail';
     scope.$digest();
     $timeout.flush(0);
-    inputElement.triggerHandler("focusout");
+    inputElement.triggerHandler('focusout');
     expect(directiveElement.hasClass('ng-hide')).toBe(true);
     expect(directiveElement.hasClass('ng-show')).toBe(false);
     expect(inputElement.hasClass(errorCls)).toBe(false);
@@ -116,12 +116,12 @@ describe('Directive: uiFormValidationMessage', function () {
       '</form>'+'</div>'+'</div>');
     $compile(element3)(scope3);
     scope3.$digest();
-    var inputElement=element3.find("[name='number0']");
-    var directiveElement=element3.find("[field='number0']");
+    var inputElement=element3.find('[name="number0"]');
+    var directiveElement=element3.find('[field="number0"]');
     inputElement.val('a').trigger('input');
     scope3.$digest();
     $timeout.flush(0);
-    inputElement.triggerHandler("focusout");
+    inputElement.triggerHandler('focusout');
     expect(directiveElement.hasClass('ng-hide')).toBe(false);
     expect(directiveElement.hasClass('ng-show')).toBe(true);
     expect(inputElement.hasClass(errorCls)).toBe(true);
@@ -141,12 +141,12 @@ describe('Directive: uiFormValidationMessage', function () {
       '</form>'+'</div>'+'</div>');
     $compile(element3)(scope3);
     scope3.$digest();
-    var inputElement=element3.find("[name='number0']");
-    var directiveElement=element3.find("[field='number0']");
+    var inputElement=element3.find('[name="number0"]');
+    var directiveElement=element3.find('[field="number0"]');
     inputElement.val(4).trigger('input');
     scope3.$digest();
     $timeout.flush(0);
-    inputElement.triggerHandler("focusout");
+    inputElement.triggerHandler('focusout');
     expect(directiveElement.hasClass('ng-hide')).toBe(true);
     expect(directiveElement.hasClass('ng-show')).toBe(false);
     expect(inputElement.hasClass(errorCls)).toBe(false);

@@ -54,7 +54,7 @@ describe('Service: uiFormValidation', function () {
     );
     _$compile(element)(scope);
     scope.$digest();
-    scope.value ="";
+    scope.value ='';
     uiFormValidation.formValidationByRegularExp(numericRegEx,'uiNumber',scope.form.textField);
     scope.$digest();
     expect(scope.form.textField.$error.uiNumber).toBe(undefined);
