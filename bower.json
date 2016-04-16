@@ -1,0 +1,16 @@
+{
+  "name": "ui-form-validation",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.3.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.3.0"
+  },
+  "main": [
+    "dist/scripts/scripts.js",
+    "dist/scripts/vendor.js"
+  ],
+  "appPath": "app",
+  "moduleName": "uiFormValidationApp"
+}
