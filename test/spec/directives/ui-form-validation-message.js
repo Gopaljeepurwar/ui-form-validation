@@ -48,8 +48,8 @@ describe('Directive: uiFormValidationMessage', function () {
   }));
 
   it('should hide ui-form-validation-message: init', inject(function () {
-    var directiveElement=element.find('[field="username""]');
-    var inputElement=element.find('[name="username""]');
+    var directiveElement=element.find('[field="username"]');
+    var inputElement=element.find('[name="username"]');
 
     expect(directiveElement.hasClass('ng-hide')).toBe(true);
     expect(directiveElement.hasClass('ng-show')).toBe(false);
