@@ -13,7 +13,7 @@ angular.module('uiFormValidationApp')
     return {
       require: 'ngModel',
       link: function (scope, elm, attrs, ctrl) {
-        uiFormValidation.formValidationByRegularExp(alphaNumericRegEx, 'nbAlphaNumeric', ctrl);
+        uiFormValidation.formValidationByRegularExp(alphaNumericRegEx, 'uiAlphaNumeric', ctrl);
       }
     };
   });

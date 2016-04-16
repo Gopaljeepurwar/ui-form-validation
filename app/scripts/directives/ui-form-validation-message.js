@@ -8,7 +8,7 @@
  */
 angular.module('uiFormValidationApp')
   .directive('uiFormValidationMessage',function ($timeout) {
-    var errorCls='nb-error';
+    var errorCls='ui-error';
     function containsAny(arr1,arr2){
       var result=false;
       for(var a=0;a<arr1.length;a++){
