@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc directive
- * @name uiFormValidationApp.directive:uiPhonenumber
+ * @name uiFormValidationApp.directive:uiPhoneNumber
  * @description
- * # uiPhonenumber
+ * # uiPhoneNumber
  */
 angular.module('uiFormValidationApp')
-  .directive('uiPhonenumber',function (uiFormValidation) {
+  .directive('uiPhoneNumber',function (uiFormValidation) {
     var phoneNoRegEx = new RegExp(/^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[0-9]\d{9}$/);
 
     /* supported number are.

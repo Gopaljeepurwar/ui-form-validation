@@ -37,7 +37,7 @@ angular.module('uiFormValidationApp')
         element.addClass('ng-hide');
         $timeout(function timeOutFn(){
           formElement = element.closest('form');
-          inputElement = formElement.find("[name='" + attrs.field + "']");
+          inputElement = formElement.find('[name="' + attrs.field + '"]');
           field=formController[attrs.field];
           inputElement.focusout(function focusOutFn() {
             if (field.$error && containsAny(Object.keys(field.$error),validations)) {

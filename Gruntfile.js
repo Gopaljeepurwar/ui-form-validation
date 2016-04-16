@@ -11,6 +11,7 @@ module.exports = function (grunt) {
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
+  grunt.loadNpmTasks('grunt-jsinspect');
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -381,6 +382,21 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+    jsinspect: {
+      inspect: {
+        options: {
+          threshold:   30,
+          diff:        true,
+          identifiers: false,
+          failOnMatch: true,
+          suppress:    100,
+          reporter:    'default'
+        },
+        src: [
+          '<%= yeoman.app %>/**/*.js'
+        ]
+      }
     }
   });
 
@@ -415,6 +431,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'newer:jshint',
+    'jsinspect',
     'clean:dist',
     'wiredep',
     'useminPrepare',
