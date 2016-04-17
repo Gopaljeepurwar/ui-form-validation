@@ -56,6 +56,7 @@ Use comma separated value for multiple validation on a field
 
 
 * **ui-custom-validation** :
+
     | Attribute | Type | Required | Description |
     | --- | --- | --- | --- |
     | reg-exp | Regular Expression | Yes | Regular expression to validate input field |
