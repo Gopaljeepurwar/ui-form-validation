@@ -3,7 +3,7 @@
 describe('Directive: uiNumber', function () {
 
   // load the directive's module
-  beforeEach(module('uiFormValidationApp'));
+  beforeEach(module('ui.formValidation'));
 
   var element,scope,form;
 

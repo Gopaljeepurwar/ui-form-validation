@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc directive
- * @name uiFormValidationApp.directive:uiCustomValidation
+ * @name ui.formValidation.directive:uiCustomValidation
  * @description
  * # uiCustomValidation
  */
-angular.module('uiFormValidationApp')
+angular.module('ui.formValidation')
   .directive('uiCustomValidation',function (uiFormValidation) {
     return {
       require: 'ngModel',

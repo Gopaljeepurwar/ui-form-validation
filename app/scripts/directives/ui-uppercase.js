@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc directive
- * @name uiFormValidationApp.directive:uiUppercase
+ * @name ui.formValidation.directive:uiUppercase
  * @description
  * # uiUppercase
  */
-angular.module('uiFormValidationApp')
+angular.module('ui.formValidation')
   .directive('uiUppercase',function (uiFormValidation) {
     var uppercaseRegEx = new RegExp(/^[A-Z]+$/);
     return {

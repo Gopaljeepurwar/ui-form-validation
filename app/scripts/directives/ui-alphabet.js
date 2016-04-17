@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc directive
- * @name uiFormValidationApp.directive:uiAlphabet
+ * @name ui.formValidation.directive:uiAlphabet
  * @description
  * # uiAlphabet
  */
-angular.module('uiFormValidationApp')
+angular.module('ui.formValidation')
   .directive('uiAlphabet', function (uiFormValidation) {
     var alphabeticRegEx = new RegExp(/^[A-z]+$/);
     return {

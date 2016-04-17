@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc directive
- * @name uiFormValidationApp.directive:uiLowercase
+ * @name ui.formValidation.directive:uiLowercase
  * @description
  * # uiLowercase
  */
-angular.module('uiFormValidationApp')
+angular.module('ui.formValidation')
   .directive('uiLowercase', function (uiFormValidation) {
     var lowercaseRegEx = new RegExp(/^[a-z]+$/);
     return {

@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name uiFormValidationApp.uiFormValidation
+ * @name ui.formValidation.uiFormValidation
  * @description
  * # uiFormValidation
- * Service in the uiFormValidationApp.
+ * Service in the ui.formValidation.
  */
-angular.module('uiFormValidationApp')
+angular.module('ui.formValidation')
   .service('uiFormValidation', function () {
     var service = {};
 

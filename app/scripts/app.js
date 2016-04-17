@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc overview
- * @name uiFormValidationApp
+ * @name ui.formValidation
  * @description
- * # uiFormValidationApp
+ * # ui.formValidation
  *
  * Main module of the application.
  */
 angular
-  .module('uiFormValidationApp', []);
+  .module('ui.formValidation', []);

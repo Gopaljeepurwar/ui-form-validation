@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc directive
- * @name uiFormValidationApp.directive:uiNumber
+ * @name ui.formValidation.directive:uiNumber
  * @description
  * # uiNumber
  */
-angular.module('uiFormValidationApp')
+angular.module('ui.formValidation')
   .directive('uiNumber', function (uiFormValidation) {
     var numericRegEx = new RegExp(/^[0-9]*$/);
     return {

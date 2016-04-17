@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc directive
- * @name uiFormValidationApp.directive:uiAlphaNumeric
+ * @name ui.formValidation.directive:uiAlphaNumeric
  * @description
  * # uiAlphaNumeric
  */
-angular.module('uiFormValidationApp')
+angular.module('ui.formValidation')
   .directive('uiAlphaNumeric',  function (uiFormValidation) {
     var alphaNumericRegEx = new RegExp(/^[a-zA-Z0-9 ]+$/);
 

@@ -11,8 +11,7 @@ module.exports = function (grunt) {
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
-  grunt.loadNpmTasks('grunt-jsinspect');
-  grunt.loadNpmTasks('grunt-istanbul-coverage');
+
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -64,20 +63,7 @@ module.exports = function (grunt) {
         ]
       }
     },
-    coverage: {
-      default: {
-        options: {
-          thresholds: {
-            'statements': 90,
-            'branches': 90,
-            'lines': 90,
-            'functions': 90
-          },
-          dir: 'json',
-          root: 'coverage'
-        }
-      }
-    },
+
     // The actual grunt server settings
     connect: {
       options: {
@@ -161,8 +147,7 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      server: '.tmp',
-      coverage:'coverage'
+      server: '.tmp'
     },
 
     // Add vendor prefixed styles
@@ -438,7 +423,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
-    'clean:coverage',
     'wiredep',
     'concurrent:test',
     'autoprefixer',

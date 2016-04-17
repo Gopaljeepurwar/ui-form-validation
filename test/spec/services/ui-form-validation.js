@@ -3,7 +3,7 @@
 describe('Service: uiFormValidation', function () {
 
   // load the service's module
-  beforeEach(module('uiFormValidationApp'));
+  beforeEach(module('ui.formValidation'));
 
   // instantiate service
   var uiFormValidation,element,scope,_$compile;
