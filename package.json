@@ -18,26 +18,31 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-filerev": "^2.1.2",
     "grunt-google-cdn": "^0.4.3",
+    "grunt-istanbul-coverage": "^0.1.3",
+    "grunt-jsinspect": "1.1.0",
+    "grunt-karma": "*",
     "grunt-newer": "^1.1.0",
     "grunt-ng-annotate": "^0.9.2",
     "grunt-svgmin": "^2.0.0",
     "grunt-usemin": "^3.0.0",
     "grunt-wiredep": "^2.0.0",
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
     "jshint-stylish": "^1.0.0",
+    "karma": "^0.13.22",
+    "karma-coverage": "^0.5.5",
+    "karma-jasmine": "*",
+    "karma-phantomjs-launcher": "*",
     "load-grunt-tasks": "^3.1.0",
-    "time-grunt": "^1.0.0",
-    "grunt-jsinspect": "1.1.0",
-    "grunt-karma": "^0.12.2",
-    "karma": "^0.13.22"
+    "phantomjs": "^2.1.7",
+    "phantomjs-prebuilt": "^2.1.7",
+    "time-grunt": "^1.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
   },
-  "dependencies": {
-    "grunt-karma": "^0.12.2",
-    "jasmine": "^2.4.1",
-    "jasmine-core": "^2.4.1",
-    "karma": "^0.13.22",
-    "phantomjs": "^2.1.7"
+  "scripts": {
+    "test": "grunt default",
+    "ci": "npm test && codecov coverage/cobertura/cobertura-coverage.xml --token=:70a3e7c1-db5b-468f-b957-7aa9aecfaeae"
   }
 }
