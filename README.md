@@ -21,7 +21,7 @@ Perform your form validation using re-usable directives and API to create your o
 
 ##### CODE
 ```javascript
-angular.module('myApp',['uiFormValidationApp']);
+angular.module('myApp',['ui.formValidation']);
 ```
 ## Directives :
 * **ui-form-validation-message** : Checks the form validation and shows proper validation messages on focusout. It adds 'ui-error' class on input field if any validation fails.

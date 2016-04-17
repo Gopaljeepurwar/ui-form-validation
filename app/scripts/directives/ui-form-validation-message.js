@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc directive
- * @name uiFormValidationApp.directive:uiFormValidationMessage
+ * @name ui.formValidation.directive:uiFormValidationMessage
  * @description
  * # uiFormValidationMessage
  */
-angular.module('uiFormValidationApp')
+angular.module('ui.formValidation')
   .directive('uiFormValidationMessage',function ($timeout) {
     var errorCls='ui-error';
     function containsAny(arr1,arr2){

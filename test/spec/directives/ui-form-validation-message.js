@@ -3,7 +3,7 @@
 describe('Directive: uiFormValidationMessage', function () {
 
   // load the directive's module
-  beforeEach(module('uiFormValidationApp'));
+  beforeEach(module('ui.formValidation'));
 
   var element,scope,element2,scope2,_$comile,errorCls,scope3,element3;
   errorCls='ui-error';

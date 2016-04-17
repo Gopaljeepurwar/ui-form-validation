@@ -48,7 +48,9 @@ module.exports = function (grunt) {
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
+        tasks: ['newer:copy:styles'
+          //'autoprefixer'
+        ]
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -165,32 +167,6 @@ module.exports = function (grunt) {
       coverage:'coverage'
     },
 
-    // Add vendor prefixed styles
-    autoprefixer: {
-      options: {
-        browsers: ['last 1 version']
-      },
-      server: {
-        options: {
-          map: true,
-        },
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      }
-    },
-
     // Automatically inject Bower components into the app
     wiredep: {
       app: {
@@ -215,17 +191,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Renames files for browser caching purposes
-    /*filerev: {
-      dist: {
-        src: [
-          '<%= yeoman.dist %>/scripts/{,*!/}*.js',
-          '<%= yeoman.dist %>/styles/{,*!/}*.css',
-          '<%= yeoman.dist %>/images/{,*!/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.dist %>/styles/fonts/!*'
-        ]
-      }
-    },*/
 
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
@@ -237,8 +202,7 @@ module.exports = function (grunt) {
         flow: {
           html: {
             steps: {
-              js: ['concat', 'uglifyjs'],
-              css: ['cssmin']
+              js: ['concat', 'uglifyjs']
             },
             post: {}
           }
@@ -272,15 +236,15 @@ module.exports = function (grunt) {
     //     }
     //   }
     // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
+    uglify: {
+       dist: {
+         files: {
+          '<%= yeoman.dist %>/scripts/ui-form-validation.min.js': [
+             '<%= yeoman.dist %>/scripts/ui-form-validation.js'
+           ]
+         }
+      }
+     },
     // concat: {
     //   dist: {}
     // },
@@ -296,16 +260,6 @@ module.exports = function (grunt) {
       }
     },*/
 
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
 
     htmlmin: {
       dist: {
@@ -352,27 +306,8 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>',
-          src: [
-            '*.{ico,png,txt}',
-            '.htaccess',
-            '*.html',
-            'views/{,*/}*.html',
-            'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
-          ]
-        }, {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/images',
-          src: ['generated/*']
+          dest: '<%= yeoman.dist %>'
         }]
-      },
-      styles: {
-        expand: true,
-        cwd: '<%= yeoman.app %>/styles',
-        dest: '.tmp/styles/',
-        src: '{,*/}*.css'
       }
     },
 
@@ -384,11 +319,7 @@ module.exports = function (grunt) {
       test: [
         'copy:styles'
       ],
-      dist: [
-        'copy:styles',
-        //'imagemin',
-        'svgmin'
-      ]
+     // dist: []
     },
 
     // Test settings
@@ -425,7 +356,6 @@ module.exports = function (grunt) {
       'clean:server',
       'wiredep',
       'concurrent:server',
-      'autoprefixer:server',
       'connect:livereload',
       'watch'
     ]);
@@ -441,7 +371,6 @@ module.exports = function (grunt) {
     'clean:coverage',
     'wiredep',
     'concurrent:test',
-    'autoprefixer',
     'connect:test',
     'karma'
   ]);
@@ -452,15 +381,12 @@ module.exports = function (grunt) {
     'clean:dist',
     'wiredep',
     'useminPrepare',
-    'concurrent:dist',
-    'autoprefixer',
+    //'concurrent:dist',
     'concat',
     'ngAnnotate',
-    'copy:dist',
+   // 'copy:dist',
     'cdnify',
-    'cssmin',
     'uglify',
-    //'filerev',
     'usemin',
     'htmlmin'
   ]);
