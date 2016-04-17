@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>ui-form-validation by Gopaljeepurwar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">ui-form-validation</h1>
+      <h2 class="project-tagline">form validation for angular js</h2>
+      <a href="https://github.com/Gopaljeepurwar/ui-form-validation" class="btn">View on GitHub</a>
+      <a href="https://github.com/Gopaljeepurwar/ui-form-validation/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Gopaljeepurwar/ui-form-validation/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="form-validation" class="anchor" href="#form-validation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>form-validation</h1>
+
+<p><a href="http://gruntjs.com/"><img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt"></a>
+<a href="https://travis-ci.org/Gopaljeepurwar/ui-form-validation"><img src="https://travis-ci.org/Gopaljeepurwar/ui-form-validation.svg?branch=master" alt="Build Status"></a>
+<a href="https://gemnasium.com/github.com/Gopaljeepurwar/ui-form-validation"><img src="https://gemnasium.com/badges/github.com/Gopaljeepurwar/ui-form-validation.svg" alt="Dependency Status"></a>
+<a href="https://codecov.io/github/Gopaljeepurwar/ui-form-validation?branch=master"><img src="https://codecov.io/github/Gopaljeepurwar/ui-form-validation/coverage.svg?branch=master" alt="codecov.io"></a>
+<a href="https://app.review.ninja/Gopaljeepurwar/ui-form-validation"><img src="https://app.review.ninja/56203952/badge" alt="ReviewNinja"></a></p>
+
+<h1>
+<a id="angular-ui-form-validation" class="anchor" href="#angular-ui-form-validation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Angular ui form validation</h1>
+
+<p>Perform your form validation using re-usable directives and API to create your own validation types. </p>
+
+<h2>
+<a id="installing" class="anchor" href="#installing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing</h2>
+
+<h4>
+<a id="bower" class="anchor" href="#bower" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bower</h4>
+
+<div class="highlight highlight-source-js"><pre>    bower install form<span class="pl-k">-</span>validation
+    <span class="pl-k">&lt;</span>script src<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>bower_components/form-validation/dist/scripts/scripts.js<span class="pl-pds">"</span></span><span class="pl-k">&gt;&lt;</span><span class="pl-k">/</span>script<span class="pl-k">&gt;</span></pre></div>
+
+<h4>
+<a id="cdn" class="anchor" href="#cdn" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CDN</h4>
+
+<h5>
+<a id="you-can-use-rawgitcoms-cdn-url-to-access-the-files-in-the-bower-repository-these-files-are-hosted-by-maxcdn-just-alter-the-version-as-you-need" class="anchor" href="#you-can-use-rawgitcoms-cdn-url-to-access-the-files-in-the-bower-repository-these-files-are-hosted-by-maxcdn-just-alter-the-version-as-you-need" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>You can use rawgit.com's cdn url to access the files in the Bower repository. These files are hosted by MaxCDN. Just alter the version as you need.</h5>
+
+<ul>
+<li><a href="https://rawgit.com/Gopaljeepurwar/ui-form-validation/master/dist/scripts/scripts.js">https://rawgit.com/Gopaljeepurwar/ui-form-validation/master/dist/scripts/scripts.js</a></li>
+</ul>
+
+<h5>
+<a id="code" class="anchor" href="#code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CODE</h5>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">angular</span>.<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">'</span>myApp<span class="pl-pds">'</span></span>,[<span class="pl-s"><span class="pl-pds">'</span>ui.formValidation<span class="pl-pds">'</span></span>]);</pre></div>
+
+<h2>
+<a id="directives-" class="anchor" href="#directives-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Directives :</h2>
+
+<ul>
+<li>
+<p><strong>ui-form-validation-message</strong> : Checks the form validation and shows proper validation messages on focusout. It adds 'ui-error' class on input field if any validation fails.</p>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>field</td>
+<td>String</td>
+<td>Yes</td>
+<td>input field name</td>
+</tr>
+<tr>
+<td>validation</td>
+<td>String</td>
+<td>Yes</td>
+<td>validation type,can be single(e.g 'required') or comma separated(e.g 'required,email')</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">form</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>&gt;
+         &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>uname<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>uname<span class="pl-pds">"</span></span> <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Enter your name<span class="pl-pds">"</span></span> <span class="pl-e">required</span>&gt;
+         &lt;<span class="pl-ent">ui</span><span class="pl-e">-form-validation-message</span> <span class="pl-e">field</span>=<span class="pl-s"><span class="pl-pds">"</span>uname<span class="pl-pds">"</span></span> <span class="pl-e">validation</span>=<span class="pl-s"><span class="pl-pds">"</span>required<span class="pl-pds">"</span></span>&gt;
+           &lt;<span class="pl-ent">div</span>&gt;
+            &lt;<span class="pl-ent">span</span>&gt;Please enter a valid name&lt;/<span class="pl-ent">span</span>&gt;
+           &lt;/<span class="pl-ent">div</span>&gt;
+         &lt;/<span class="pl-ent">ui</span><span class="pl-e">-form-validation-message</span>&gt;
+     &lt;/<span class="pl-ent">form</span>&gt;</pre></div>
+
+<p>Use comma separated value for multiple validation on a field</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">form</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>&gt;
+         &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>email<span class="pl-pds">"</span></span>  <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>email<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>email<span class="pl-pds">"</span></span> <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Enter your email<span class="pl-pds">"</span></span> <span class="pl-e">required</span>&gt;
+         &lt;<span class="pl-ent">ui</span><span class="pl-e">-form-validation-message</span> <span class="pl-e">field</span>=<span class="pl-s"><span class="pl-pds">"</span>email<span class="pl-pds">"</span></span> <span class="pl-e">validation</span>=<span class="pl-s"><span class="pl-pds">"</span>required,email<span class="pl-pds">"</span></span>&gt;
+           &lt;<span class="pl-ent">div</span>&gt;
+              &lt;<span class="pl-ent">span</span>&gt;Please enter a valid email&lt;/<span class="pl-ent">span</span>&gt;
+           &lt;/<span class="pl-ent">div</span>&gt;
+         &lt;/<span class="pl-ent">ui</span><span class="pl-e">-form-validation-message</span>&gt;
+     &lt;/<span class="pl-ent">form</span>&gt;</pre></div>
+
+<ul>
+<li>
+<p><strong>ui-custom-validation</strong> :</p>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reg-exp</td>
+<td>Regular Expression</td>
+<td>Yes</td>
+<td>Regular expression to validate input field</td>
+</tr>
+<tr>
+<td>validation</td>
+<td>String</td>
+<td>No (Default: uiCustomValidation)</td>
+<td>Custom validation name</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">form</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>&gt;
+         &lt;<span class="pl-ent">input</span> <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>userName<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>userName<span class="pl-pds">"</span></span> <span class="pl-e">reg-exp</span>=<span class="pl-s"><span class="pl-pds">"</span>^[A-z]+$<span class="pl-pds">"</span></span> <span class="pl-e">validation</span>=<span class="pl-s"><span class="pl-pds">"</span>customAlphabet<span class="pl-pds">"</span></span> <span class="pl-e">ui-custom-validation</span>/&gt;
+         &lt;<span class="pl-ent">ui</span><span class="pl-e">-form-validation-message</span> <span class="pl-e">field</span>=<span class="pl-s"><span class="pl-pds">"</span>userName<span class="pl-pds">"</span></span> <span class="pl-e">validation</span>=<span class="pl-s"><span class="pl-pds">"</span>customAlphabet<span class="pl-pds">"</span></span>&gt;
+           &lt;<span class="pl-ent">div</span>&gt;
+              &lt;<span class="pl-ent">span</span>&gt;Please enter a valid user name&lt;/<span class="pl-ent">span</span>&gt;
+           &lt;/<span class="pl-ent">div</span>&gt;
+         &lt;/<span class="pl-ent">ui</span><span class="pl-e">-form-validation-message</span>&gt;
+     &lt;/<span class="pl-ent">form</span>&gt;</pre></div>
+
+<ul>
+<li>
+<p><strong>Predefined validations</strong> :</p>
+
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>validaion name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ui-alpha-numeric</td>
+<td>uiAlphaNumeric</td>
+<td>Only alphabets (i.e. a-z &amp; A-Z) and numeric digits (i.e. 0-9) are allowed.</td>
+</tr>
+<tr>
+<td>ui-alphabet</td>
+<td>uiAlphabet</td>
+<td>Only alphabets (i.e. a-z &amp; A-Z) are allowed.</td>
+</tr>
+<tr>
+<td>ui-lowercase</td>
+<td>uiLowercase</td>
+<td>Only alphabets (i.e. a-z) are allowed.</td>
+</tr>
+<tr>
+<td>ui-uppercase</td>
+<td>uiUppercase</td>
+<td>Only alphabets (i.e. A-Z) are allowed.</td>
+</tr>
+<tr>
+<td>ui-number</td>
+<td>uiNumber</td>
+<td>Only alphabets (i.e. 0-9) are allowed.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>required</td>
+<td>Required field</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">form</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>&gt;
+       &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>form-group<span class="pl-pds">"</span></span>&gt;
+         &lt;<span class="pl-ent">input</span> <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>quantity<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>quantity<span class="pl-pds">"</span></span>  <span class="pl-e">ui-number</span>/&gt;
+         &lt;<span class="pl-ent">ui</span><span class="pl-e">-form-validation-message</span> <span class="pl-e">field</span>=<span class="pl-s"><span class="pl-pds">"</span>quantity<span class="pl-pds">"</span></span> <span class="pl-e">validation</span>=<span class="pl-s"><span class="pl-pds">"</span>uiNumber<span class="pl-pds">"</span></span>&gt;
+           &lt;<span class="pl-ent">div</span>&gt;
+              &lt;<span class="pl-ent">span</span>&gt;Please enter a valid quantity&lt;/<span class="pl-ent">span</span>&gt;
+           &lt;/<span class="pl-ent">div</span>&gt;
+         &lt;/<span class="pl-ent">ui</span><span class="pl-e">-form-validation-message</span>&gt;
+       &lt;/<span class="pl-ent">div</span>&gt;
+     &lt;/<span class="pl-ent">form</span>&gt;</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Gopaljeepurwar/ui-form-validation">ui-form-validation</a> is maintained by <a href="https://github.com/Gopaljeepurwar">Gopaljeepurwar</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
