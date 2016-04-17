@@ -11,8 +11,7 @@ module.exports = function (grunt) {
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
-  grunt.loadNpmTasks('grunt-jsinspect');
-  grunt.loadNpmTasks('grunt-istanbul-coverage');
+
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -48,9 +47,7 @@ module.exports = function (grunt) {
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles'
-          //'autoprefixer'
-        ]
+        tasks: ['newer:copy:styles', 'autoprefixer']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -66,20 +63,7 @@ module.exports = function (grunt) {
         ]
       }
     },
-    coverage: {
-      default: {
-        options: {
-          thresholds: {
-            'statements': 90,
-            'branches': 90,
-            'lines': 90,
-            'functions': 90
-          },
-          dir: 'json',
-          root: 'coverage'
-        }
-      }
-    },
+
     // The actual grunt server settings
     connect: {
       options: {
@@ -163,8 +147,33 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      server: '.tmp',
-      coverage:'coverage'
+      server: '.tmp'
+    },
+
+    // Add vendor prefixed styles
+    autoprefixer: {
+      options: {
+        browsers: ['last 1 version']
+      },
+      server: {
+        options: {
+          map: true,
+        },
+        files: [{
+          expand: true,
+          cwd: '.tmp/styles/',
+          src: '{,*/}*.css',
+          dest: '.tmp/styles/'
+        }]
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '.tmp/styles/',
+          src: '{,*/}*.css',
+          dest: '.tmp/styles/'
+        }]
+      }
     },
 
     // Automatically inject Bower components into the app
@@ -191,6 +200,17 @@ module.exports = function (grunt) {
       }
     },
 
+    // Renames files for browser caching purposes
+    /*filerev: {
+      dist: {
+        src: [
+          '<%= yeoman.dist %>/scripts/{,*!/}*.js',
+          '<%= yeoman.dist %>/styles/{,*!/}*.css',
+          '<%= yeoman.dist %>/images/{,*!/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= yeoman.dist %>/styles/fonts/!*'
+        ]
+      }
+    },*/
 
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
@@ -202,7 +222,8 @@ module.exports = function (grunt) {
         flow: {
           html: {
             steps: {
-              js: ['concat', 'uglifyjs']
+              js: ['concat', 'uglifyjs'],
+              css: ['cssmin']
             },
             post: {}
           }
@@ -236,15 +257,15 @@ module.exports = function (grunt) {
     //     }
     //   }
     // },
-    uglify: {
-       dist: {
-         files: {
-          '<%= yeoman.dist %>/scripts/ui-form-validation.min.js': [
-             '<%= yeoman.dist %>/scripts/ui-form-validation.js'
-           ]
-         }
-      }
-     },
+    // uglify: {
+    //   dist: {
+    //     files: {
+    //       '<%= yeoman.dist %>/scripts/scripts.js': [
+    //         '<%= yeoman.dist %>/scripts/scripts.js'
+    //       ]
+    //     }
+    //   }
+    // },
     // concat: {
     //   dist: {}
     // },
@@ -260,6 +281,16 @@ module.exports = function (grunt) {
       }
     },*/
 
+    svgmin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/images',
+          src: '{,*/}*.svg',
+          dest: '<%= yeoman.dist %>/images'
+        }]
+      }
+    },
 
     htmlmin: {
       dist: {
@@ -306,8 +337,27 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>'
+          dest: '<%= yeoman.dist %>',
+          src: [
+            '*.{ico,png,txt}',
+            '.htaccess',
+            '*.html',
+            'views/{,*/}*.html',
+            'images/{,*/}*.{webp}',
+            'styles/fonts/{,*/}*.*'
+          ]
+        }, {
+          expand: true,
+          cwd: '.tmp/images',
+          dest: '<%= yeoman.dist %>/images',
+          src: ['generated/*']
         }]
+      },
+      styles: {
+        expand: true,
+        cwd: '<%= yeoman.app %>/styles',
+        dest: '.tmp/styles/',
+        src: '{,*/}*.css'
       }
     },
 
@@ -319,7 +369,11 @@ module.exports = function (grunt) {
       test: [
         'copy:styles'
       ],
-     // dist: []
+      dist: [
+        'copy:styles',
+        //'imagemin',
+        'svgmin'
+      ]
     },
 
     // Test settings
@@ -356,6 +410,7 @@ module.exports = function (grunt) {
       'clean:server',
       'wiredep',
       'concurrent:server',
+      'autoprefixer:server',
       'connect:livereload',
       'watch'
     ]);
@@ -368,9 +423,9 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
-    'clean:coverage',
     'wiredep',
     'concurrent:test',
+    'autoprefixer',
     'connect:test',
     'karma'
   ]);
@@ -381,12 +436,15 @@ module.exports = function (grunt) {
     'clean:dist',
     'wiredep',
     'useminPrepare',
-    //'concurrent:dist',
+    'concurrent:dist',
+    'autoprefixer',
     'concat',
     'ngAnnotate',
-   // 'copy:dist',
+    'copy:dist',
     'cdnify',
+    'cssmin',
     'uglify',
+    //'filerev',
     'usemin',
     'htmlmin'
   ]);
