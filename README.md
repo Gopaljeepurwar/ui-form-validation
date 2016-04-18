@@ -8,7 +8,7 @@
 # Angular ui form validation
 Perform your form validation using re-usable directives and API to create your own validation types. 
 
-## Installing
+## Installation
 #### Bower
 ```javascript
     bower install form-validation

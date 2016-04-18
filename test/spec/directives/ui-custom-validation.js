@@ -11,6 +11,37 @@ describe('Directive: uiCustomValidation', function () {
     scope = $rootScope;
   }));
 
+  it('should throw an error if regEx is not defined', inject(function ($compile) {
+    element = angular.element(
+      '<form name="form">' +
+      '<input ng-model="userName" name="userName" validation="uiAlphabet" ui-custom-validation/>' +
+      '</form>'
+    );
+
+    expect(function(){
+      $compile(element)(scope);
+      form = scope.form;
+      var inputElement = element.find('input');
+      inputElement.val('as #!').trigger('input');
+      scope.$digest();
+    }).toThrow();
+  }));
+
+  it('should use default validation name if validation name is not defind', inject(function ($compile) {
+    element = angular.element(
+      '<form name="form">' +
+      '<input ng-model="userName" name="userName" reg-exp="^[A-z]+$" ui-custom-validation/>' +
+      '</form>'
+    );
+
+    $compile(element)(scope);
+    form = scope.form;
+    var inputElement = element.find('input');
+    inputElement.val('BKID').trigger('input');
+    scope.$digest();
+    expect(form.userName.$error.uiAlphabet).toBe(undefined);
+  }));
+
   it('should throw an error if input value does not match with regular expression', inject(function ($compile) {
     element = angular.element(
       '<form name="form">' +
