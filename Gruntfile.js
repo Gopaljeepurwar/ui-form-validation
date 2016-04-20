@@ -15,9 +15,6 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-  grunt.loadNpmTasks('grunt-bump');
-  grunt.loadNpmTasks('grunt-jsinspect');
-  grunt.loadNpmTasks('grunt-istanbul-coverage');
   //grunt.loadNpmTasks('grunt-bump');
   // Configurable paths for the application
   var appConfig = {
@@ -92,24 +89,6 @@ module.exports = function (grunt) {
               connect.static(appConfig.app)
             ];
           }
-        }
-      },
-      bump: {
-        options: {
-          files: ['bower.json'],
-          updateConfigs: [],
-          commit: true,
-          commitMessage: 'Release v%VERSION%',
-          commitFiles: ['-a'],
-          createTag: true,
-          tagName: 'v%VERSION%',
-          tagMessage: 'Version %VERSION%',
-          push: true,
-          pushTo: 'upstream',
-          gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
-          globalReplace: false,
-          prereleaseName: false,
-          regExp: false
         }
       },
       test: {
@@ -473,10 +452,6 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
-    'build',
-    'bump'
-  ]);
-  grunt.registerTask('bump', [
-    'bump'
+    'build'
   ]);
 };
