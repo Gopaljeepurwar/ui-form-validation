@@ -17,19 +17,13 @@ angular.module('ui.formValidation')
         firstFieldCtrl = formController[attrs.uiSameAs];
         secondFieldCtrl= ctrls[0];
         secondFieldCtrl.$validators.uiSameAs=function (modelValue, viewValue){
-          var value = modelValue || viewValue;
-          console.log('+++');
-          console.log(!value);
-          if (!value) {
-            return true;
-          }
-          else {
-            if (secondFieldCtrl.$viewValue === firstFieldCtrl.$viewValue) {
+          var value;
+          value = modelValue || viewValue;
+          if (value === firstFieldCtrl.$viewValue) {
               return true;
             } else {
               return false;
             }
-          }
         };
 
       }

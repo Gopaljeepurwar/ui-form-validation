@@ -6,7 +6,7 @@ describe('Directive: uiSameAs', function () {
   beforeEach(module('ui.formValidation'));
 
 
-  var element, scope,form;
+  var element, scope,form,inputElement1,inputElement12;
   beforeEach(inject(function ($rootScope) {
     scope = $rootScope;
   }));
@@ -20,9 +20,11 @@ describe('Directive: uiSameAs', function () {
     );
 
     $compile(element)(scope);
+    inputElement1= element.find('[name="pwd"]');
+    inputElement12= element.find('[name="cnfPwd"]');
     form = scope.form;
-    scope.value1 ='qwerty';
-    scope.value2 ='qwert';
+    inputElement1.val('qwerty').trigger('input');
+    inputElement12.val('qwert').trigger('input');
     scope.$digest();
     expect(form.cnfPwd.$error.uiSameAs).toBe(true);
   }));
@@ -36,27 +38,14 @@ describe('Directive: uiSameAs', function () {
     );
 
     $compile(element)(scope);
+    inputElement1= element.find('[name="pwd"]');
+    inputElement12= element.find('[name="cnfPwd"]');
     form = scope.form;
-    scope.value1 ='qwerty';
-    scope.value2 ='qwerty';
+    inputElement1.val('qwerty').trigger('input');
+    inputElement12.val('qwerty').trigger('input');
     scope.$digest();
     expect(form.cnfPwd.$error.uiSameAs).toBe(undefined);
   }));
 
 
-  it('should also work if it match with a empty field', function ($compile) {
-    element = angular.element(
-      '<form name="form">' +
-      '<input ng-model="value1" name="pwd"/>' +
-      '<input ng-model="value2" name="cnfPwd" ui-same-as="pwd"/>' +
-      '</form>'
-    );
-
-    $compile(element)(scope);
-    form = scope.form;
-    scope.value1 ='qwerty';
-    scope.value2 ='';
-    scope.$digest();
-    expect(form.cnfPwd.$error.uiSameAs).toBe(true);
-  });
 });

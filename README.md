@@ -12,11 +12,13 @@ Perform your form validation using re-usable directives and API to create your o
 #### Bower
 ```javascript
     bower install form-validation
+    <script src="bower_components/form-validation/dist/scripts/vendor.js"></script>
     <script src="bower_components/form-validation/dist/scripts/scripts.js"></script>
 ```
 #### CDN
 
 ##### You can use rawgit.com's cdn url to access the files in the Bower repository. These files are hosted by MaxCDN. Just alter the version as you need.
+* https://rawgit.com/Gopaljeepurwar/ui-form-validation/master/dist/scripts/vendor.js
 * https://rawgit.com/Gopaljeepurwar/ui-form-validation/master/dist/scripts/scripts.js
 
 ##### CODE
@@ -33,25 +35,25 @@ angular.module('myApp',['ui.formValidation']);
     
 ```html
 <form name="test">
-         <input type="text" ng-model="uname" name="uname" placeholder="Enter your name" required>
-         <ui-form-validation-message field="uname" validation="required">
-           <div>
-            <span>Please enter a valid name</span>
-           </div>
-         </ui-form-validation-message>
-     </form>
+   <input type="text" ng-model="uname" name="uname" placeholder="Enter your name" required>
+   <ui-form-validation-message field="uname" validation="required">
+     <div>
+      <span>Please enter a valid name</span>
+     </div>
+   </ui-form-validation-message>
+ </form>
 ``` 
 
 Use comma separated value for multiple validation on a field
 ```html
 <form name="test">
-         <input type="email"  ng-model="email" name="email" placeholder="Enter your email" required>
-         <ui-form-validation-message field="email" validation="required,email">
-           <div>
-              <span>Please enter a valid email</span>
-           </div>
-         </ui-form-validation-message>
-     </form>
+   <input type="email"  ng-model="email" name="email" placeholder="Enter your email" required>
+   <ui-form-validation-message field="email" validation="required,email">
+     <div>
+        <span>Please enter a valid email</span>
+     </div>
+   </ui-form-validation-message>
+</form>
 ```
 
 
@@ -65,13 +67,13 @@ Use comma separated value for multiple validation on a field
 
 ```html
 <form name="test">
-         <input ng-model="userName" name="userName" reg-exp="^[A-z]+$" validation="customAlphabet" ui-custom-validation/>
-         <ui-form-validation-message field="userName" validation="customAlphabet">
-           <div>
-              <span>Please enter a valid user name</span>
-           </div>
-         </ui-form-validation-message>
-     </form>
+   <input ng-model="userName" name="userName" reg-exp="^[A-z]+$" validation="customAlphabet" ui-custom-validation/>
+   <ui-form-validation-message field="userName" validation="customAlphabet">
+     <div>
+        <span>Please enter a valid user name</span>
+     </div>
+   </ui-form-validation-message>
+</form>
 ```
 
 
@@ -88,15 +90,30 @@ Use comma separated value for multiple validation on a field
     
 ```html
 <form name="test">
-       <div class="form-group">
-         <input ng-model="quantity" name="quantity"  ui-number/>
-         <ui-form-validation-message field="quantity" validation="uiNumber">
-           <div>
-              <span>Please enter a valid quantity</span>
-           </div>
-         </ui-form-validation-message>
+   <div class="form-group">
+     <input ng-model="quantity" name="quantity"  ui-number/>
+     <ui-form-validation-message field="quantity" validation="uiNumber">
+       <div>
+          <span>Please enter a valid quantity</span>
        </div>
-     </form>
+     </ui-form-validation-message>
+   </div>
+ </form>
 ```
 
+* **Some special directives** :
+   * **ui-same-as** : Validates whether one field is same as another field
+```html
+<form name="test">
+   <div class="form-group">
+      <input ng-model="value1" name="pwd"/>
+      <input ng-model="value2" name="cnfPwd" ui-same-as="pwd"/>
+      <ui-form-validation-message field="value2" validation="uiSameAs">
+       <div>
+          <span>Password does not match the confirmation password.</span>
+       </div>
+     </ui-form-validation-message>
+   </div>
+</form>
+```
 
