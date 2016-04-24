@@ -13,5 +13,27 @@
     "dist/scripts/vendor.js"
   ],
   "appPath": "app",
-  "moduleName": "uiFormValidationApp"
+  "moduleName": "ui.formValidation",
+  "authors": [
+    "Gopal Jee Purwar <gopaljee1992@gmail.com>"
+  ],
+  "description": "form-validation for angular js",
+  "keywords": [
+    "form validation",
+    "angularjs",
+    "ui-form-validation",
+    "form-validation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gopaljeepurwar/ui-form-validation.git"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "test",
+    "package.json",
+    "app",
+    "*.*"
+  ]
 }
