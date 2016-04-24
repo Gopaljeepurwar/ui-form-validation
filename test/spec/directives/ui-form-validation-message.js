@@ -14,13 +14,13 @@ describe('Directive: uiFormValidationMessage', function () {
       '<form name="myForm">' +
       '<div class="form-control">' +
       '<input type="text" name="username" ng-model="username" required/>' +
-      '<ui-form-validation-message field="username" validation="required">' +
+      '<div ui-form-validation-message field="username" validation="required">' +
       '<p>Please enter a username</p>' +
-      '</ui-form-validation-message>' +
+      '</div>' +
       '<input type="email" name="email" ng-model="email" required email/>' +
-      '<ui-form-validation-message field="email" validation="required">' +
+      '<div ui-form-validation-message field="email" validation="required">' +
       '<p>Please enter email</p>' +
-      '</ui-form-validation-message>' +
+      '</div>' +
       '</div>' +
       '</form>');
     $compile(element)(scope);
@@ -32,9 +32,9 @@ describe('Directive: uiFormValidationMessage', function () {
       '<form name="myForm2">' +
       '<div class="form-control">' +
       '<input type="text" name="city" ng-model="city" required/>' +
-      '<ui-form-validation-message>' +
+      '<div ui-form-validation-message>' +
       '<p>Please enter a city</p>' +
-      '</ui-form-validation-message>' +
+      '</div>' +
       '</div>' +
       '</form>');
     _$comile=$compile;

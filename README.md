@@ -36,11 +36,11 @@ angular.module('myApp',['ui.formValidation']);
 ```html
 <form name="test">
    <input type="text" ng-model="uname" name="uname" placeholder="Enter your name" required>
-   <ui-form-validation-message field="uname" validation="required">
+   <div ui-form-validation-message field="uname" validation="required">
      <div>
       <span>Please enter a valid name</span>
      </div>
-   </ui-form-validation-message>
+   </div>
  </form>
 ``` 
 
@@ -48,11 +48,11 @@ Use comma separated value for multiple validation on a field
 ```html
 <form name="test">
    <input type="email"  ng-model="email" name="email" placeholder="Enter your email" required>
-   <ui-form-validation-message field="email" validation="required,email">
+   <div ui-form-validation-message field="email" validation="required,email">
      <div>
         <span>Please enter a valid email</span>
      </div>
-   </ui-form-validation-message>
+   </div>
 </form>
 ```
 
@@ -68,11 +68,11 @@ Use comma separated value for multiple validation on a field
 ```html
 <form name="test">
    <input ng-model="userName" name="userName" reg-exp="^[A-z]+$" validation="customAlphabet" ui-custom-validation/>
-   <ui-form-validation-message field="userName" validation="customAlphabet">
+   <div ui-form-validation-message field="userName" validation="customAlphabet">
      <div>
         <span>Please enter a valid user name</span>
      </div>
-   </ui-form-validation-message>
+   </div>
 </form>
 ```
 
@@ -96,11 +96,11 @@ Use comma separated value for multiple validation on a field
 <form name="test">
    <div class="form-group">
      <input ng-model="quantity" name="quantity"  ui-number/>
-     <ui-form-validation-message field="quantity" validation="uiNumber">
+     <div ui-form-validation-message field="quantity" validation="uiNumber">
        <div>
           <span>Please enter a valid quantity</span>
        </div>
-     </ui-form-validation-message>
+     </div>
    </div>
  </form>
 ```
@@ -112,11 +112,11 @@ Use comma separated value for multiple validation on a field
    <div class="form-group">
       <input ng-model="value1" name="pwd"/>
       <input ng-model="value2" name="cnfPwd" ui-same-as="pwd"/>
-      <ui-form-validation-message field="value2" validation="uiSameAs">
+      <div ui-form-validation-message field="value2" validation="uiSameAs">
        <div>
           <span>Password does not match the confirmation password.</span>
        </div>
-     </ui-form-validation-message>
+     </div>
    </div>
 </form>
 ```

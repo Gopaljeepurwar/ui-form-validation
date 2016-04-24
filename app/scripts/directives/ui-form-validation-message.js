@@ -26,7 +26,7 @@ angular.module('ui.formValidation')
     }
     return {
       require:'^form',
-      restrict: 'E',
+      restrict: 'EA',
       link: function (scope, element, attrs,formController) {
         var formElement,inputElement,field,validations;
         if(!(attrs.field && attrs.validation)){
