@@ -35,11 +35,9 @@ angular.module('myApp',['ui.formValidation']);
     
 ```html
 <form name="test">
-   <input type="text" ng-model="uname" name="uname" placeholder="Enter your name" required>
+   <input type="text" ng-model="uname" name="uname" required>
    <div ui-form-validation-message field="uname" validation="required">
-     <div>
-      <span>Please enter a valid name</span>
-     </div>
+      Please enter a valid name
    </div>
  </form>
 ``` 
@@ -47,11 +45,9 @@ angular.module('myApp',['ui.formValidation']);
 Use comma separated value for multiple validation on a field
 ```html
 <form name="test">
-   <input type="email"  ng-model="email" name="email" placeholder="Enter your email" required>
+   <input type="email"  ng-model="email" name="email" required>
    <div ui-form-validation-message field="email" validation="required,email">
-     <div>
-        <span>Please enter a valid email</span>
-     </div>
+      Please enter a valid email
    </div>
 </form>
 ```
@@ -69,10 +65,8 @@ Use comma separated value for multiple validation on a field
 <form name="test">
    <input ng-model="userName" name="userName" reg-exp="^[A-z]+$" validation="customAlphabet" ui-custom-validation/>
    <div ui-form-validation-message field="userName" validation="customAlphabet">
-     <div>
-        <span>Please enter a valid user name</span>
-     </div>
-   </div>
+      Please enter a valid user name
+    </div>
 </form>
 ```
 
@@ -94,14 +88,10 @@ Use comma separated value for multiple validation on a field
     
 ```html
 <form name="test">
-   <div class="form-group">
      <input ng-model="quantity" name="quantity"  ui-number/>
      <div ui-form-validation-message field="quantity" validation="uiNumber">
-       <div>
-          <span>Please enter a valid quantity</span>
-       </div>
+        Please enter a valid quantity
      </div>
-   </div>
  </form>
 ```
 
@@ -109,15 +99,11 @@ Use comma separated value for multiple validation on a field
    * **ui-same-as** : Validates whether one field is same as another field
 ```html
 <form name="test">
-   <div class="form-group">
       <input ng-model="value1" name="pwd"/>
       <input ng-model="value2" name="cnfPwd" ui-same-as="pwd"/>
       <div ui-form-validation-message field="value2" validation="uiSameAs">
-       <div>
-          <span>Password does not match the confirmation password.</span>
-       </div>
-     </div>
-   </div>
+        Password does not match the confirmation password.
+      </div>
 </form>
 ```
 
