@@ -86,6 +86,10 @@ Use comma separated value for multiple validation on a field
     | ui-lowercase  | uiLowercase | Only alphabets (i.e. a-z) are allowed. |
     | ui-uppercase | uiUppercase | Only alphabets (i.e. A-Z) are allowed. |
     | ui-number  | uiNumber | Only alphabets (i.e. 0-9) are allowed. |
+    | ui-ip-address  | uiIpAddress | Both IP address(IPv4 and IPv6) are allowed. |
+    | ui-ipv4  | uiIPv4 | Only IP address(IPv4) is allowed. |
+    | ui-ipv6  | uiIPv6 | Only IP address(IPv6) is allowed. |
+    | ui-credit-card  | uiCreditCard | Only credit card number is allowed. |
     | required  | required | Required field |
     
 ```html
