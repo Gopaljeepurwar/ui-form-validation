@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "dependencies": {
     "angular": "^1.3.0",
-    "jquery": "jQuery#2.1.4",
-    "form-validation": "~0.1.0"
+    "jquery": "jQuery#2.1.4"
   },
   "devDependencies": {
     "angular-mocks": "^1.3.0"
@@ -14,7 +13,7 @@
     "dist/scripts/vendor.js"
   ],
   "appPath": "app",
-  "moduleName": "uiFormValidationApp",
+  "moduleName": "ui.formValidation",
   "authors": [
     "Gopal Jee Purwar <gopaljee1992@gmail.com>"
   ],
